@@ -16,6 +16,9 @@ let songEpoch = 0;              // millis when song starts
 let table;
 let words;
 
+
+
+
 function songLoadedError() {
   songButton.elt.innerHTML = "Song: Load Error";
   print(songButton.elt.innerHTML);
@@ -27,9 +30,10 @@ function songLoaded() {
   songLoadStatus = "loaded";
   songButton.elt.innerHTML = "run song";
   songButton.elt.disabled = false;
-  // let now = millis();
-  // songEpoch = now + 5000;
+  //  let now = millis();
+  //  songEpoch = now + 5000;
   if(debugFastRefresh && getAudioContext().state != "suspended"){
+
     switchRunMode()
   }
 }

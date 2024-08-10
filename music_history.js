@@ -14,6 +14,17 @@ function draw_history_line(history) {
   endShape();
 }
 
+
+function keyPressed() {
+  if (key === 'o') {
+    song.pause();
+  }
+
+  if (key === 'p') {
+    song.play();
+  }
+}
+
 function draw_history_words(history) {
   let last_words = history[0];
   let text_y = height/8;
@@ -74,9 +85,3 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   draw_history_words(words_history);    
 }
 
-function reset_music() {
-  vocal_history = [];
-  drum_history = [];
-  bass_history = [];
-  other_history = [];
-}

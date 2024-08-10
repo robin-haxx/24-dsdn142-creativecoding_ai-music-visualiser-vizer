@@ -1,16 +1,21 @@
 
+
+
+
 // vocal, drum, bass, and other are volumes ranging from 0 to 100
 function draw_one_frame(words, vocal, drum, bass, other, counter) {
   background(20)
   textFont('Verdana'); // please use CSS safe fonts
   rectMode(CENTER)
   textSize(24);
+
+ 
   
    let bar_spacing = height / 10;
    let bar_height = width / 12;
    let bar_pos_x = width / 2;
  
-
+  text (counter, 100,100)
    // vocal bar is red
    fill(200, 0, 0);
    rect(bar_pos_x, height / 2 + 1 * bar_spacing, 4 * vocal, bar_height);
