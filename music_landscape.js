@@ -1,16 +1,27 @@
 let last_words = "";
 let last_words_opacity = 0;
 
+let scene;
+let firstRun = true;
+
 function draw_one_frame(words, vocal, drum, bass, other,counter) {
-  background(255,236,180); // cream
-  fill(244,161,39); // orange
+
+  if (firstRun){
+    scene = loadImage ('assets/scene.png');
+    firstRun = false;
+  }
+  background(255);
+  image(scene, 0,0);
+
+  //background(255,236,180); // cream
+  fill(244,161,39,50); // orange
 
   let stripeWidth = map(other, 40, 100, 40, 80, true);
 
   let numStripes = height / stripeWidth;
   for(let i=0; i<numStripes; i=i+2) {
     let cury = map(i, 0, numStripes-1, 0, height);
-    rect(0, cury, width, stripeWidth);
+    circle(width/2, height/2, cury*.8);
   }
 
   let triangleHeight = map(bass, 40, 100, 200, 550, true);
@@ -35,6 +46,9 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   let ovalPlace = map(vocal, 20, 100, height-50, 50, true);
   let ovalSize = map(vocal, 20, 100, 60, 150, true);
   fill(229,119,30); // darker orange
+  if (vocal < 45){
+    ovalPlace = height-50;
+  }
   ellipse(width/2, ovalPlace, ovalSize);
 
   if(words == "") {

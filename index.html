@@ -5,8 +5,9 @@
     <script language="javascript" type="text/javascript" src="lib/p5.sound.js"></script>
     <script language="javascript" type="text/javascript" src="lib/taira.js"></script>
     <script language="javascript" type="text/javascript" src="system_settings.js"></script>
-    <script language="javascript" type="text/javascript" src="music_starter.js"></script>
+    <script language="javascript" type="text/javascript" src="music_landscape.js"></script>
     <script language="javascript" type="text/javascript" src="system_runner.js"></script>
+    <script language="javascript" type="text/javascript" src="map.js"></script>
 
     <style>
         body   { padding: 0; margin: 0; }
@@ -23,14 +24,37 @@
             -ms-transition: opacity 0.2s ease;
         }
         #controls:hover { opacity: 0.9; }
+
+        .back-button {
+            padding: 10px 20px;
+            font-size: 16px;
+            cursor: pointer;
+            background-color: #4CAF50;
+            color: white;
+            border: none;
+            border-radius: 5px;
+            transition: background-color 0.3s;
+        }
+        .back-button:hover {
+            background-color: #45a049;
+        }
     </style>
 
 </head>
 <body style="background-color:white">
+    <button class="back-button" onclick="goBack()">Back to map</button>
+
+    <script>
+        function goBack() {
+            // Replace 'svg_script.html' with the actual name of your SVG script file
+            window.location.href = 'map.html';
+        }
+    </script>
     <div class="outer">
         <div class="inner">
             <div id="canvasContainer"></div>
         </div>
+
         <div class="inner" id="controls" height="500px">
             <table>
                 <tr>
@@ -61,4 +85,5 @@
         </div>
     </div>
 </table>
+
 </body>
