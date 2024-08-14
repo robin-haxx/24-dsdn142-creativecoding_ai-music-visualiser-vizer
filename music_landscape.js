@@ -4,6 +4,7 @@ let last_words_opacity = 0;
 let scene;
 let firstRun = true;
 
+
 function draw_one_frame(words, vocal, drum, bass, other,counter) {
 
   if (firstRun){
@@ -38,6 +39,18 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
 
   let drumSize = map(drum, 30, 100, 30, 300, true);
   fill(90,61,43); // brown
+  strokeWeight(10);
+  stroke(255);
+
+  let drumMap = map(drum, 0, 100, 10, 60)
+  let lineLen = 300;
+  let lineStart = 100;
+  let lineEnd = lineStart+lineLen;
+
+  for (let i = 0; i <= drumMap; i++){
+    var lineStep = 20 * i;
+    line (lineStart, lineStep, lineEnd, lineStep);
+  };
   rect(0, 0, drumSize, drumSize);
   rect(width, 0, -drumSize, drumSize);
   rect(0, height, drumSize, -drumSize);
