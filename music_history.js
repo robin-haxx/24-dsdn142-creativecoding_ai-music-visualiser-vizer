@@ -58,6 +58,7 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   add_to_history(bass_history, bass);
   add_to_history(other_history, other);
 
+
   strokeWeight(10);  
 
   // vocal bar is red
