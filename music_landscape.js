@@ -1,5 +1,5 @@
 let firstRun = true;
-let toggle = false;
+//let toggle = false;
 
 let scene;
 let heron = [];
@@ -43,9 +43,9 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
     voiceThreshold = false;
   }
 
-  if (toggle){
-  background(whiteCol)
-  } else 
+  // if (toggle){
+  // background(whiteCol)
+  // } else 
   if (seconds < 10){
   background(blackCol);
   } else {
@@ -89,9 +89,9 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   // "toggle" is a true/false value that inverts when a very specific condition is met -
   // drum value rounded down to nearest whole number detected as exactly 70
   // declared as false at the top of code.
-  if (Math.floor(drum) == 70){
-    toggle = !toggle;
-  }
+  // if (Math.floor(drum) == 70){
+  //   toggle = !toggle;
+  // }
 
   // maps vocal track to Y placement and size of the small oval
   let ovalPlace = map(vocal, 45, 100, height-50, 50, true);
@@ -133,11 +133,11 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   // DEBUG TOOLS:
   // value for seconds counter, proxy, slowed proxy and drum == 70 toggle
   textSize(40);
-  text(seconds + " seconds",            canvasWidth * 0.05,canvasHeight * 0.2)
-  text("counter / 8 = " + counterProxy, canvasWidth * 0.05,canvasHeight * 0.3)
-  text("slowed: " + proxySlowed,        canvasWidth * 0.05,canvasHeight * 0.35)
-  text("% 8 remainder: " + remainder,   canvasWidth * 0.05,canvasHeight * 0.4)
-  text("toggle: " + toggle,             canvasWidth * 0.05,canvasHeight * 0.45)
+  text(seconds + " seconds",            canvasWidth * 0.05, canvasHeight * 0.20)
+  // text("counter / 8 = " + counterProxy, canvasWidth * 0.05, canvasHeight * 0.30)
+  // text("slowed: " + proxySlowed,        canvasWidth * 0.05, canvasHeight * 0.35)
+  // text("% 8 remainder: " + remainder,   canvasWidth * 0.05, canvasHeight * 0.40)
+  // text("toggle: " + toggle,             canvasWidth * 0.05, canvasHeight * 0.45)
 
 
 }
