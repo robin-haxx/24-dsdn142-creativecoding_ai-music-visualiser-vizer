@@ -1,7 +1,6 @@
-# Vizer
+# Project 2 examples
+This is where the files demonstrating project 2 ideas are stored
 
-A P5JS framework for running a simple music visualizer, intended as a creative coding I assignment.
-
-Song details: // UPDATE THIS AS YOUR CHANGE YOUR SONG 
-Title = Just Dropped In (To See What Condition My Condition Was In)
-Artist = Kenny Rogers
+Current song:
+Title = Higher Ground
+Artist = ODESZA, Naomi Wild
