@@ -11,27 +11,48 @@ let cellsY ;
 let grid;
 let cols;
 let rows;
-let resolution = 10;
+let resolution = 20;
+
+
 
 let colGreen = [80,150,90]
 let colBlue = [50,50,100]
 let colRed = [80,50,20]
+let colApple = [240,100,80]
 let colWhite = [255,255,255]
+let colCream = [255,255,230]
+let colBlack = [0,0,0]
+let colYellow = [213, 219, 15]
 
-let aliveCol = [colGreen,colRed,colBlue,colWhite];
-let deadCol = [255,255,230];
+//let aliveCol = [colGreen,colYellow,colBlack,colCream];
+let deadCol = colBlack;
 let current = 0;
+
+
 
 function draw_one_frame(words, vocal, drum, bass, other,counter) {
 
-  let resMap = map(other,0,100,80,10);
+  ellipseMode(CENTER);
+rectMode(CENTER);
 
+let appleCol = color(240,100,80);
+let greenCol = color(80,150,90);
+let yellowCol = color(213, 219, 15);
+let blackCol = color(0,0,0);
+let creamCol = color(255,255,230);
 
-  if (counter % 540 == 0 && counter != 0){
+let aliveCol = [yellowCol,greenCol,creamCol,blackCol];
+
+  let resMap = map(other,0,100,80,10,true);
+  let colShift = map (drum,0,100,0,0.8,true)
+  
+  let shiftedCol = lerpColor(appleCol,aliveCol[current],colShift)
+
+  if (counter % 240 == 0 && counter != 0){
     phaseCheck = true;
     resolution += 10;
-    if (resolution >= 40){
-      resolution = 10;
+    if (resolution >= 50){
+      resolution = 20;
     }
     current++;
     if (current >= aliveCol.length){
@@ -61,10 +82,14 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
       let x = i * resolution;
       let y = j * resolution;
       if (grid[i][j] == 1) {
-        fill(aliveCol[current]);
-        stroke(bass*5);
-        strokeWeight(drum/20)
-        rect(x, y, resolution - 1, resolution - 1);
+        //fill(aliveCol[current]);
+        fill(shiftedCol)
+        let appleSize = random(0,1);
+        //stroke(bass*5);
+        noStroke();
+        //strokeWeight(drum/40)
+        circle(x,y,(resolution+5)* appleSize)
+        rect(x, y, (resolution - 1)*appleSize);
       }
     }
   }
@@ -91,9 +116,9 @@ function draw_one_frame(words, vocal, drum, bass, other,counter) {
   }
   // iterates the GOL based on a rate that is the product of audio activity
   if( (drum >= 40 && counter % 5 == 0) || 
-      (vocal >= 45 && counter % 15 == 0) || 
+      (vocal >= 45 && counter % 10 == 0) || 
       (bass >= 60 && counter % 20 == 0) || 
-      (other >= 65 && counter % 25 == 0)) {
+      (other >= 65 && counter % 20 == 0)) {
   grid = next;
   }
   }
